@@ -1,0 +1,22 @@
+.hero-head {
+    animation: 1s fadein 0.5s forwards;
+    opacity: 0;
+}
+
+@keyframes fadein {
+    100% {
+        opacity: 1;
+    }
+}
+
+.navbar-item img {
+    max-height: 2.75rem;
+}
+
+.header-logo-last-name {
+    margin-left: 5px;
+}
+
+.navbar-logo-modified {
+    font-size: 140%;
+}
