@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import image from './../assets/cm_landing.jpg'
+import './../landign.css';
 
 class Landing extends Component{
     render(){
