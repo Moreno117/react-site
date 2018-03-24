@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import TypedModule from './../../common/typed';
+
 import image from './../assets/cm_landing.jpg'
 import './../landign.css';
 
@@ -28,7 +30,7 @@ class Landing extends Component{
                                     { callToAction }
                                 </a>
                             </p>
-                            <p id="mail-typed" className="has-text-centered"></p>
+                            <TypedModule />
                         </div>
                     </div>
                 </div>
