@@ -1,5 +1,6 @@
 import React,{ Component } from "react";
-import { isEqual } from 'lodash';
+import { getPost } from './../../../api'
+import { populate } from './../helpers/posts';
 
 import ActionButton from './../components/actionButton';
 import Slider from './../components/slider';
@@ -10,32 +11,40 @@ class BlogContainer extends Component{
         super(props);
 
         this.state = {
-            images: []
+            images: [],
+            posts: []
         }
     }
 
-    componentWillReceiveProps(nextProps){
-        let images = [];
-        if(!isEqual(nextProps.posts, this.props.posts)){
-            nextProps.posts.forEach(post => {
-                images.push(post.image);
-            });
-            this.setState({ images: images });
-        }
+    componentDidMount(){
+        getPost(1, 3)
+        .then(response =>  populate(response))
+        .then(data => this.setState({ posts: data.docs, images: data.images }))
+        .catch(err => {
+            console.log(err)
+        });
+    };
+
+    fetchMoreArticles(page, size){
+        getPost(page, size)
+        .then(response => populate(response))
+        .then(data => this.setState({ posts: data.docs, images: data.images }))
+        .catch(err => {
+            console.log('err', err)
+        })
     }
 
     render(){
-        const { posts, loadMore } = this.props;
+        let { images, posts } = this.state;
+
         const articles = posts.map(post => {
             return <Articles post={post} key={post._id} />
         });
 
-        console.log(this.state)
-
         return(
             <div className="columns is-fullheight">                
                 
-                <Slider/>                
+                <Slider images={ images }/>                
                 
                 <div className="column right-side is-half-desktop is-full-mobile">
                     <section className="hero is-fullheight is-default is-bold">
@@ -48,7 +57,7 @@ class BlogContainer extends Component{
                         </div>
                     </section>
                     
-                    <ActionButton callback={loadMore}/>
+                    <ActionButton callback={(p,s) => this.fetchMoreArticles(2,3)}/>
 
                 </div>
             </div>
