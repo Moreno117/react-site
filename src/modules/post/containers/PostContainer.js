@@ -22,8 +22,8 @@ class PostContainer extends Component{
         })
         .catch(error => {
             console.log('err --->', error);
-        })
-    }
+        });
+    };
 
     render(){
         const { post, content } = this.state;
