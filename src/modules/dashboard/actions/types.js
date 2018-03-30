@@ -1,0 +1,2 @@
+export const SELECT_SECTION = 'SELECT_SECTION';
+export const LOADING_MODULE = 'LOADING_MODULE';

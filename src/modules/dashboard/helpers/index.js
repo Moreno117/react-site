@@ -5,7 +5,7 @@ export const menuSections = [
     },
     {
         header: 'Posts',
-        subtypes: ['All Posts','New','Edit','Delete']
+        subtypes: ['All Posts','New','Edit']
     },
     {
         header: 'Media',
