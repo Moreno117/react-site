@@ -16,3 +16,11 @@ export const showPost = id => {
         url: `${API_URL}/api/posts/${id}`
     });
 };
+
+export const createPost = params => {
+    return axios({
+        method: 'post',
+        url: `${API_URL}/api/posts`,
+        data: stringify(params)
+    });
+};

@@ -6,7 +6,7 @@ import configureStore from './store'
 import LandingModule from './modules/landing';
 import BlogModule from './modules/blog';
 import PostModule from './modules/post';
-import DashboardModel from './modules/dashboard';
+import DashboardModule from './modules/dashboard';
 
 const store = configureStore();
 
@@ -21,9 +21,9 @@ class App extends Component {
             <Route exact path="/blog" component={ BlogModule } />
             <Route exact path="/post/:id" component={ PostModule } />
             
-            <Route exact path="/dashboard" component={ DashboardModel } />
-            <Route exact path="/dashboard/posts/new" component={ DashboardModel } />
-            <Route exact path="/dashboard/posts/:id/edit" component={ DashboardModel } />
+            <Route exact path="/dashboard" component={ DashboardModule } />
+            <Route exact path="/dashboard/posts/new" component={ DashboardModule } />
+            <Route exact path="/dashboard/posts/:id/edit" component={ DashboardModule } />
           
           </Switch>
         </Router>

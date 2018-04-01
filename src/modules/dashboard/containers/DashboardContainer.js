@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Menu from './../components/menu';
 import Home from './Home';
-import NewPost from './NewPost';
-import EditPost from './EditPost';
+import NewPost from './posts/NewPost';
+import EditPost from './posts/EditPost';
 import { menuSections } from './../helpers';
 
 class DashBoardContainer extends Component{
