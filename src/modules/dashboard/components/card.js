@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Card = ({post}) => {
+const Card = ({ post, deletePost }) => {
     return(
         <div className="card" style={{ width:'40%', margin:'1em' }}>
             <header className="card-header">
@@ -16,8 +16,8 @@ const Card = ({post}) => {
                 </div>
             </div>
             <footer className="card-footer">                
-                <a href={`/dashboard/:${post.id}/edit`} className="card-footer-item">Edit</a>
-                <a href={`/dashboard/:${post.id}/delete`} className="card-footer-item">Delete</a>
+                <a href={`/dashboard/${post._id}/edit`} className="card-footer-item">Edit</a>
+                <a onClick={ deletePost } className="card-footer-item">Delete</a>
             </footer>
         </div>
     );

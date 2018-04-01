@@ -24,3 +24,10 @@ export const createPost = params => {
         data: stringify(params)
     });
 };
+
+export const removePost = id => {
+    return axios({
+        method: 'delete',
+        url: `${API_URL}/api/posts/${id}`
+    })
+}
