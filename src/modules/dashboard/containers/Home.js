@@ -44,7 +44,7 @@ class Home extends Component{
         })
 
         return(
-            <div style={{ display:'flex', flexWrap:'wrap' }}>
+            <div style={{ display:'flex', flexWrap:'wrap', overflow:'scroll', height:'40rem'}}>
                 { cards }
             </div>
         );

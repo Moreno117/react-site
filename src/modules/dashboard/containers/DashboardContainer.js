@@ -3,6 +3,8 @@ import Menu from './../components/menu';
 import Home from './Home';
 import NewPost from './posts/NewPost';
 import EditPost from './posts/EditPost';
+import Gallery from './media/gallery';
+import NewImage from './media/newImage';
 import { menuSections } from './../helpers';
 
 class DashBoardContainer extends Component{
@@ -13,6 +15,10 @@ class DashBoardContainer extends Component{
                 return <NewPost/>
             case `/dashboard/posts/${id}/edit`:
                 return <EditPost/>
+            case '/dashboard/images':                
+                return <Gallery/>
+            case '/dashboard/images/new':
+                return <NewImage/>  
             default:
                 return <Home/>
         }

@@ -25,6 +25,8 @@ class App extends Component {
             <Route exact path="/dashboard/posts/new" component={ DashboardModule } />
             <Route exact path="/dashboard/posts/:id/edit" component={ DashboardModule } />
           
+            <Route exact path="/dashboard/images" component={ DashboardModule } />
+
           </Switch>
         </Router>
       </Provider>

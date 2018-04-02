@@ -6,7 +6,6 @@ class DashboardModule extends Component{
     render(){
         const { pathname } = this.props.location;
         const { id } = this.props.match.params;
-
         return(
             <Wrapper>
                 <DashboardContainer pathname={pathname} id={id} />

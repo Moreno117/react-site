@@ -37,5 +37,14 @@ export const removePost = id => {
     return axios({
         method: 'delete',
         url: `${API_URL}/api/posts/${id}`
-    })
-}
+    });
+};
+
+// *********** Images API *********
+export const getImages = (size, page) => {
+    return axios({
+        method: 'get',
+        url: `${API_URL}/api/images`,
+        params: { page, size }
+    });
+};
