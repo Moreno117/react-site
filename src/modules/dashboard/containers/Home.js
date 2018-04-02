@@ -7,7 +7,8 @@ class Home extends Component{
         super(props);
 
         this.state = {
-            posts: []
+            posts: [],
+            removeSuccess: false
         }
     }
     
@@ -20,11 +21,15 @@ class Home extends Component{
     erasePost(id){
         removePost(id)
         .then(response => {
-            console.log('Post removed');
+            setTimeout(() => {
+                let { posts } = this.state;
+                let postSanitazed = posts.filter(post => post._id !== id);                                
+                this.setState({ removeSuccess: true, posts: postSanitazed });
+            }, 1000);
         })
         .catch(error => {
             console.log('not erased', error);
-        })
+        });
     }
 
     render(){

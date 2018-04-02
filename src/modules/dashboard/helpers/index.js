@@ -1,27 +1,66 @@
 export const menuSections = [
     {
         header: 'General',
-        subtypes: ['Inicio','Blog','Social']
+        subtypes: [
+        {
+            title: 'Inicio',
+            link: '/'
+        },
+        {
+            title: 'Blog',
+            link: '/blog'
+        },
+        {
+            title: 'Social',
+            link: '/social'
+        }]
     },
     {
         header: 'Posts',
-        subtypes: ['All Posts','New','Edit']
+        subtypes: [{
+            title: 'All Posts',
+            link: '/dashboard'
+        },{
+            title: 'New',
+            link: '/dashboard/posts/new'
+        }],
     },
     {
         header: 'Media',
-        subtypes: ['Images','Upload']
+        subtypes: [ {
+            title: 'All Images',
+            link: '/dashboard/images'
+        },{
+            title: 'Upload',
+            link: '/dashboard/images/new'
+        }],
     },
     {
         header: 'Authors',
-        subtypes: ['All Authors','New','Edit','Remove']
+        subtypes: [ {
+            title: 'All Authors',
+            link: '/dashboard/authors'
+        },{
+            title: 'New',
+            link: '/dashboard/authors/new'
+        }],
     },
     {
         header: 'Users',
-        subtypes: ['All Users','New','Edit','Remove']
+        subtypes: [{
+            title: 'All Users',
+            link: '/dashboard/users'
+        },{
+            title: 'New',
+            link: '/dashboard/users/new'
+        }],
     },
     {
         header: 'Actions',
-        subtypes: ['Log out']
+        subtypes: [ {
+            title: 'Log Out',
+            link: '/dashboard/logout' 
+        }],
     }
 ];
 
