@@ -25,6 +25,14 @@ export const createPost = params => {
     });
 };
 
+export const updatePost = (id, params) => {
+    return axios({
+        method: 'put',
+        url: `${API_URL}/api/posts/${id}`,
+        data: stringify(params)
+    });
+};
+
 export const removePost = id => {
     return axios({
         method: 'delete',

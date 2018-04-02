@@ -16,7 +16,7 @@ const Card = ({ post, deletePost }) => {
                 </div>
             </div>
             <footer className="card-footer">                
-                <a href={`/dashboard/${post._id}/edit`} className="card-footer-item">Edit</a>
+                <a href={`/dashboard/posts/${post._id}/edit`} className="card-footer-item">Edit</a>
                 <a onClick={ deletePost } className="card-footer-item">Delete</a>
             </footer>
         </div>

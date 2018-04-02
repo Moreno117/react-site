@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Card from './../components/card';
+import Card from './../components/posts/card';
 import { getPost, removePost } from './../../../api';
 
 class Home extends Component{

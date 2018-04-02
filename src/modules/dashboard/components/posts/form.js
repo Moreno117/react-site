@@ -1,6 +1,6 @@
 import React from  'react';
 
-const Form = ({topics, callback, author, title, image, content, subject, submitt}) => {
+const Form = ({ topics, callback, author, title, image, content, subject, submitt, buttonLabel}) => {
     return(
         <div>
             <div className="field is-horizontal">
@@ -33,7 +33,7 @@ const Form = ({topics, callback, author, title, image, content, subject, submitt
                     <div className="field is-narrow">
                         <div className="control">
                             <div className="select is-fullwidth">
-                            <select value={ subject } onChange={ callback }>                
+                            <select value={ subject } onChange={ callback } name="subject">                
                                 { topics.map(topic => {
                                     return (
                                         <option key={topic} value={topic}>{ topic }</option>
@@ -104,7 +104,6 @@ const Form = ({topics, callback, author, title, image, content, subject, submitt
                             placeholder="Woderful note here"
                             onChange={ callback }
                         >
-
                         </textarea>
                     </div>
                     </div>
@@ -118,7 +117,7 @@ const Form = ({topics, callback, author, title, image, content, subject, submitt
                     <div className="field">
                         <div className="control">
                             <button className="button is-primary" onClick={ submitt }>
-                                Create Post
+                                { buttonLabel }
                             </button>
                         </div>
                     </div>

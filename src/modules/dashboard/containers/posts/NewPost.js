@@ -59,7 +59,7 @@ class NewPost extends Component{
 
         if (redirect) {
             return <Redirect to='/dashboard'/>;
-          }     
+        }
 
         return(
             <Form 
@@ -71,6 +71,7 @@ class NewPost extends Component{
                 image={ image }
                 subject={ subject }
                 submitt={ this.publicPost.bind(this) }
+                buttonLabel={ 'Create Post' }
             />
         );
     }
