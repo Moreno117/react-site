@@ -28,10 +28,14 @@ class NewImage extends Component{
 
     handlePreview(e){
         const imagePure = e.target.files[0];
-        const url = URL.createObjectURL(e.target.files[0]);
-        const { name, size, type } = e.target.files[0];
-        const imageData = {name, size, type, url};
-        this.setState({ image:imageData, imagePure  })
+        if (e.target.files[0]){
+            const url = URL.createObjectURL(e.target.files[0]);
+            const { name, size, type } = e.target.files[0];
+            const imageData = {name, size, type, url};
+            this.setState({ image:imageData, imagePure  })
+        } else{
+            return
+        }
     }
 
     handleChangeText(e){
