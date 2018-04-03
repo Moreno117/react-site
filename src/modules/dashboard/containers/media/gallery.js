@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import Tile from './../../components/tile/tile';
+import Tile from './../../components/media/tile';
 import { getImages } from './../../../../api';
 
 class Gallery extends Component{
@@ -17,25 +17,16 @@ class Gallery extends Component{
         .catch(err => console.log('error ->', err));
     }
 
-    render(){
-        console.log('----> state', this.state);
+    render(){        
         const { images } = this.state;
         const tiles = images.map(image => 
             <Tile key={image._id} image={image}/>
         )
 
         return(
-            <div>
-                <h1>Gallery</h1>
-                <div className="tile is-ancestor">
-                    <div className="tile is-vertical is-12">
-                        <div className="tile">
-                            <div className="tile is-parent">
-                                { tiles }
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div className="container" style={{ display:'contents' }}>
+                <h1>Gallery</h1>                
+                { tiles }                
             </div>
         );
     }

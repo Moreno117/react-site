@@ -75,12 +75,11 @@ export const validateForm = state => {
     return true
 }
 
-//this could works
-export const experimentFunction = params => {
-    let formData = new FormData();
-    for(var param in params){
-        formData.append(param, params[param])
-    }
+export const validateImageForm = params => {
+    let formData = new FormData(); 
+    formData.append('title', params.title);
+    formData.append('source', params.source);
+    formData.append('upload', params.upload);
     return formData;
 }
 
@@ -92,6 +91,5 @@ export const createForm = params => {
         author: params.author,
         subject: params.subject
     }
-    
     return data;
 }

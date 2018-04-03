@@ -48,3 +48,11 @@ export const getImages = (size, page) => {
         params: { page, size }
     });
 };
+
+export const createImage = data => {
+    return axios({
+        method:'post',
+        url:`${API_URL}/api/images`,
+        data: data
+    })
+}
