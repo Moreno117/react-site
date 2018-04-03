@@ -21,7 +21,7 @@ class DashBoardContainer extends Component{
                 return <NewImage/>  
             default:
                 return <Home/>
-        }
+        };
     }
 
     render(){
