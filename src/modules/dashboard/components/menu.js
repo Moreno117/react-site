@@ -10,7 +10,7 @@ const Menu = ({ sections }) => {
                 <ul className="menu-list">
                     { section.subtypes.map(subtype => {
                         return(
-                            <li key={subtype}><a>{ subtype }</a></li>
+                            <li key={subtype.title}><a href={subtype.link} >{ subtype.title }</a></li>
                         );
                     }) }
                 </ul>        

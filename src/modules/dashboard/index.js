@@ -4,9 +4,11 @@ import Wrapper from './../common/wrapper/containers/wrapper';
 
 class DashboardModule extends Component{
     render(){
+        const { pathname } = this.props.location;
+        const { id } = this.props.match.params;
         return(
             <Wrapper>
-                <DashboardContainer/>
+                <DashboardContainer pathname={pathname} id={id} />
             </Wrapper>
         );
     }
