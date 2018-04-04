@@ -10,7 +10,7 @@ class Header extends Component {
                         <div className="navbar-brand">
                             <a className="navbar-item navbar-logo-modified" href="../">
                                 {/* <img src="/images/CM_LogoMini.jpg" alt="Logo"> */}
-                                El <strong className="header-logo-last-name">Financiero</strong>
+                                Carlos <strong className="header-logo-last-name">Moreno</strong>
                             </a>
                             <span className="navbar-burger burger" data-target="navbarMenu">
                                 <span></span>

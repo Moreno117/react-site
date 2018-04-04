@@ -32,8 +32,6 @@ class Gallery extends Component{
             <Tile key={image._id} image={image} selection={(e) => this.pickOne(image.path)}/>
         )
 
-        console.log('porps', this.props)
-
         return(
             <div className="container" style={{ display:'contents' }}>
                 <h1>Gallery</h1>                
