@@ -2,6 +2,8 @@ import React,{ Component } from 'react';
 import { Redirect } from "react-router-dom";
 
 import { withRouter } from 'react-router';
+import Gallery from './../media/gallery';
+import Modal from './../../../common/modal/modal';
 import Form from './../../components/posts/form';
 import { topics, validateForm, createForm } from './../../helpers';
 import { showPost, updatePost } from './../../../../api';
@@ -17,7 +19,8 @@ class EditPost extends Component{
             image: '',
             subject: 'Business',
             updateSuccess: false,
-            redirect: false
+            redirect: false,
+            openModal: false
         }
     }
 
@@ -50,6 +53,10 @@ class EditPost extends Component{
         }
     }
     
+    handleSelection(e) {
+        this.setState({ image: e, openModal: false });
+    }
+
     updatePost(){
         const { id } = this.props.match.params;
         const form = validateForm(this.state);
@@ -67,10 +74,18 @@ class EditPost extends Component{
     }
     
     render(){
-        const { title, author, content, image, subject, redirect } = this.state;
+        const { title, author, content, image, subject, redirect, openModal } = this.state;
 
         if (redirect) {
             return <Redirect to='/dashboard' />;
+        }
+
+        if (openModal) {
+            return (
+                <Modal close={() => this.setState({ openModal: false })}>
+                    <Gallery callback={this.handleSelection.bind(this)} />
+                </Modal>
+            )
         }
 
         return(
@@ -86,6 +101,7 @@ class EditPost extends Component{
                     subject={ subject }
                     submitt={ this.updatePost.bind(this) }
                     buttonLabel={ 'Update Post' }
+                    openModal={() => this.setState({ openModal: true })}
                 />
             </div>            
         );

@@ -1,6 +1,6 @@
 import React from  'react';
 
-const Form = ({ topics, callback, author, title, image, content, subject, submitt, buttonLabel}) => {
+const Form = ({ topics, callback, author, title, image, content, subject, submitt, buttonLabel, openModal}) => {
     return(
         <div>
             <div className="field is-horizontal">
@@ -76,15 +76,11 @@ const Form = ({ topics, callback, author, title, image, content, subject, submit
                 <div className="field-body">
                     <div className="field">
                         <div className="control">
-                            <input 
-                                value={ image }
-                                className="input is-black" 
-                                type="text" 
-                                placeholder="Wonderful Note Here"
-                                name="image"
-                                onChange={ callback }
-                            />
-                        </div>                    
+                            <button 
+                                className="button is-warning"
+                                onClick={ openModal }
+                            >Choose from Gallery</button>                           
+                        </div>
                     </div>
                 </div>
             </div>

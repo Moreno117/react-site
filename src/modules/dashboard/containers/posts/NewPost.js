@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom';
 
 import Form from './../../components/posts/form';
+import Modal from './../../../common/modal/modal';
+import Gallery from './../media/gallery';
 import { topics, validateForm, createForm } from './../../helpers';
 import { createPost } from './../../../../api';
 
@@ -16,7 +18,8 @@ class NewPost extends Component{
             image: '',
             subject: 'Business',
             postSuccess: false,
-            redirect: false
+            redirect: false,
+            openModal: false
         }
     }
 
@@ -54,14 +57,27 @@ class NewPost extends Component{
         .catch(error => console.log('error --->', error))
     }
 
+    handleSelection(e){
+        this.setState({ image: e, openModal: false });
+    }
+
     render(){
-        const {redirect, title, content, author, image, subject } = this.state;        
+        console.log(this.state)
+        const {redirect, title, content, author, image, subject, openModal } = this.state;        
 
         if (redirect) {
             return <Redirect to='/dashboard'/>;
         }
 
-        return(
+        if(openModal) {
+            return (
+            <Modal close={()=>this.setState({openModal:false}) }>
+                <Gallery callback={this.handleSelection.bind(this)}/>
+            </Modal>
+            )
+        }
+
+        return(            
             <Form 
                 topics={ topics }
                 callback={ (e) => this.populateForm(e) }
@@ -72,7 +88,8 @@ class NewPost extends Component{
                 subject={ subject }
                 submitt={ this.publicPost.bind(this) }
                 buttonLabel={ 'Create Post' }
-            />
+                openModal={() => this.setState({ openModal: true }) }
+            />            
         );
     }
 }

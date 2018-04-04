@@ -1,8 +1,10 @@
 import React from 'react';
 
-const Tile = ({ image }) => {
+const Tile = ({ image, selection }) => {
     return(
-        <div className="card" style={{width:'30%', display:'inline-block', margin:'10px'}}>
+        <div className="card" 
+            style={{width:'30%', display:'inline-block', margin:'10px', cursor:'pointer'}}
+            onClick={ selection }>            
             <div className="card-image">
                 <figure className="image is-4by3">
                     <img src={ image.path } alt="Thumbnails"/>
