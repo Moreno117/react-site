@@ -7,6 +7,7 @@ import LandingModule from './modules/landing';
 import BlogModule from './modules/blog';
 import PostModule from './modules/post';
 import DashboardModule from './modules/dashboard';
+import LoginModue from './modules/dashboard/containers/users/login';
 
 const store = configureStore();
 
@@ -24,9 +25,11 @@ class App extends Component {
             <Route exact path="/dashboard" component={ DashboardModule } />
             <Route exact path="/dashboard/posts/new" component={ DashboardModule } />
             <Route exact path="/dashboard/posts/:id/edit" component={ DashboardModule } />
-          
+            
             <Route exact path="/dashboard/images" component={ DashboardModule } />
             <Route exact path="/dashboard/images/new" component={ DashboardModule } />
+            
+            <Route exact path="/dashboard/login" component={ LoginModue } />          
 
           </Switch>
         </Router>

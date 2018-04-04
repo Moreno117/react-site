@@ -93,3 +93,11 @@ export const createForm = params => {
     }
     return data;
 }
+
+export const createCredentials = params => {
+    const data = {
+        username: params.username,
+        password: params.password
+    }
+    return data;
+}

@@ -54,5 +54,14 @@ export const createImage = data => {
         method:'post',
         url:`${API_URL}/api/images`,
         data: data
-    })
-}
+    });
+};
+
+// *********** Users API *********
+export const login = credentials => {
+    return axios({
+        method: 'post',
+        url: `${API_URL}/api/users/login`,
+        data: stringify(credentials)
+    });
+};
