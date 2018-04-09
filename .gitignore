@@ -17,6 +17,9 @@
 .env.production.local
 .env
 
+# List request file 
+request.http
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
