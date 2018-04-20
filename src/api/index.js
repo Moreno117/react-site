@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { stringify }  from 'qs';
-import { API_URL } from './../utils';
+import { API_URL, getToken } from './../utils';
 
 export const getPost = (page, size) => {
     return axios({
@@ -21,7 +21,8 @@ export const createPost = params => {
     return axios({
         method: 'post',
         url: `${API_URL}/api/posts`,
-        data: stringify(params)
+        data: stringify(params),
+        headers: { Authorization: `Bearer ${getToken()}` }        
     });
 };
 
@@ -29,14 +30,16 @@ export const updatePost = (id, params) => {
     return axios({
         method: 'put',
         url: `${API_URL}/api/posts/${id}`,
-        data: stringify(params)
+        data: stringify(params),
+        headers: { Authorization: `Bearer ${getToken()}`}      
     });
 };
 
 export const removePost = id => {
     return axios({
         method: 'delete',
-        url: `${API_URL}/api/posts/${id}`
+        url: `${API_URL}/api/posts/${id}`,
+        headers: { Authorization: `Bearer ${getToken()}` }
     });
 };
 
@@ -45,6 +48,7 @@ export const getImages = (size, page) => {
     return axios({
         method: 'get',
         url: `${API_URL}/api/images`,
+        headers: { Authorization: `Bearer ${getToken()}`},    
         params: { page, size }
     });
 };
@@ -53,6 +57,7 @@ export const createImage = data => {
     return axios({
         method:'post',
         url:`${API_URL}/api/images`,
+        headers: { Authorization: `Bearer ${getToken()}` },
         data: data
     });
 };

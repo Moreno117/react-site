@@ -22,7 +22,10 @@ class Login extends Component{
     auth(){
         const data = createCredentials(this.state);
         login(data)
-        .then(response => console.log(response))
+        .then(response => {
+            const { token } = response.data;
+            sessionStorage.setItem('Nekot', token);            
+        })
         .catch(err => console.log(err))
     }
 
