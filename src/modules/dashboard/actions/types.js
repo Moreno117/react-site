@@ -1,2 +1,6 @@
-export const SELECT_SECTION = 'SELECT_SECTION';
-export const LOADING_MODULE = 'LOADING_MODULE';
+// Authorization
+export const REQUEST_LOGIN = 'REQUEST_LOGIN';
+export const SUCCESS_LOGIN = 'SUCCESS_LOGIN';
+export const FAILURE_LOGIN = 'FAILURE_LOGIN';
+export const REQUEST_LOGOUT = 'REQUEST_LOGOUT';
+

@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actions from "./../../actions";
+
 import Panel from "./../../components/users/panel";
 import { login } from './../../../../api';
 import { createCredentials } from './../../helpers';
+import { Redirect } from 'react-router-dom';
 
 class Login extends Component{
     constructor(props){
@@ -9,7 +14,7 @@ class Login extends Component{
 
         this.state = {
             username: '',
-            password: ''
+            password: ''            
         }
     }
 
@@ -24,21 +29,36 @@ class Login extends Component{
         login(data)
         .then(response => {
             const { token } = response.data;
-            sessionStorage.setItem('Nekot', token);            
+            sessionStorage.setItem('Nekot', token);
+            this.props.actions.successAuth();      
         })
         .catch(err => console.log(err))
     }
 
     render(){
-        return(
-            <div className="container" style={{width:'30%', margin:'10rem auto'}}>
-                <Panel 
+        const Tekken = sessionStorage.getItem('Nekot');
+
+        return (Tekken === null && !this.props.isAuthenticated) ? (
+            <div className="container" style={{ width: '30%', margin: '10rem auto' }}>
+                <Panel
                     callback={this.auth.bind(this)}
-                    credentials={(e) => this.setCredentials(e) }
+                    credentials={(e) => this.setCredentials(e)}
                 />
             </div>
-        );
+        ) : (
+            <Redirect push to="/"/>
+        )
+    };
+}
+
+const mapStateToProps = state => {
+    return { isAuthenticated: state.auth.isAuthenticated }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        actions: bindActionCreators(actions, dispatch)
     }
 }
 
-export default Login;
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

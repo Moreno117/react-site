@@ -8,6 +8,7 @@ import BlogModule from './modules/blog';
 import PostModule from './modules/post';
 import DashboardModule from './modules/dashboard';
 import LoginModue from './modules/dashboard/containers/users/login';
+import PrivateRoute from './modules/dashboard/components/users/privateRoute';
 
 const store = configureStore();
 
@@ -21,15 +22,15 @@ class App extends Component {
             <Route exact path="/" component={ LandingModule } />
             <Route exact path="/blog" component={ BlogModule } />
             <Route exact path="/post/:id" component={ PostModule } />
+                        
+            <PrivateRoute exact path="/dashboard" component={DashboardModule}/>
+            <PrivateRoute exact path="/dashboard/posts/new" component={DashboardModule}/>            
+            <PrivateRoute exact path="/dashboard/posts/:id/edit" component={ DashboardModule } />
             
-            <Route exact path="/dashboard" component={ DashboardModule } />
-            <Route exact path="/dashboard/posts/new" component={ DashboardModule } />
-            <Route exact path="/dashboard/posts/:id/edit" component={ DashboardModule } />
+            <PrivateRoute exact path="/dashboard/images" component={ DashboardModule } />
+            <PrivateRoute exact path="/dashboard/images/new" component={ DashboardModule } />
             
-            <Route exact path="/dashboard/images" component={ DashboardModule } />
-            <Route exact path="/dashboard/images/new" component={ DashboardModule } />
-            
-            <Route exact path="/dashboard/login" component={ LoginModue } />          
+            <Route exact path="/login" component={ LoginModue } />          
 
           </Switch>
         </Router>
