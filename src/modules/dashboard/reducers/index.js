@@ -10,8 +10,7 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
     switch (action.type) {
-        case SUCCESS_LOGIN:
-            debugger;
+        case SUCCESS_LOGIN:            
             return{
                 ...state,
                 isAuthenticated: true
