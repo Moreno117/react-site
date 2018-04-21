@@ -4,16 +4,15 @@ import { connect } from 'react-redux';
 
 const PrivateRoute = ({ component: Component, ...props }) => {
     let token = sessionStorage.getItem('Nekot');
-    console.log('auth', ...props);
     const { isAuthenticated } = props;
     return(
         <Route
             {...props}
             render={props => {                
-                return token !== null && isAuthenticated ? (
+                return (token !== null && isAuthenticated) ? (
                 <Component {...props}/>
                 ) : (
-                    <Redirect to={{ pathname: '/login' }}/>
+                    <Redirect to={{ pathname: '/moreno/acces/login' }}/>
                 );
             }}
         />

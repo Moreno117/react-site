@@ -36,8 +36,7 @@ class Login extends Component{
     }
 
     render(){
-        const Tekken = sessionStorage.getItem('Nekot');
-
+        const Tekken = sessionStorage.getItem('Nekot');        
         return (Tekken === null && !this.props.isAuthenticated) ? (
             <div className="container" style={{ width: '30%', margin: '10rem auto' }}>
                 <Panel

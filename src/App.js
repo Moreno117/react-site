@@ -9,6 +9,7 @@ import PostModule from './modules/post';
 import DashboardModule from './modules/dashboard';
 import LoginModue from './modules/dashboard/containers/users/login';
 import PrivateRoute from './modules/dashboard/components/users/privateRoute';
+import LogoutModule from './modules/dashboard/containers/users/logout';
 
 const store = configureStore();
 
@@ -29,8 +30,9 @@ class App extends Component {
             
             <PrivateRoute exact path="/dashboard/images" component={ DashboardModule } />
             <PrivateRoute exact path="/dashboard/images/new" component={ DashboardModule } />
-            
-            <Route exact path="/login" component={ LoginModue } />          
+                        
+            <Route exact path="/moreno/acces/login" component={ LoginModue } />          
+            <Route exact path="/moreno/acces/logout" component={ LogoutModule } />          
 
           </Switch>
         </Router>

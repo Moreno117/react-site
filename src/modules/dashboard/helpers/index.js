@@ -59,7 +59,7 @@ export const menuSections = [
         header: 'Actions',
         subtypes: [ {
             title: 'Log Out',
-            link: '/dashboard/logout' 
+            link: '/moreno/acces/logout' 
         }],
     }
 ];
