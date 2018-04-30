@@ -12,14 +12,20 @@ class BlogContainer extends Component{
 
         this.state = {
             images: [],
-            posts: []
+            posts: [],
+            page: '',
+            pages: '',
+            nextPage: ''
         }
     }
 
     componentDidMount(){
         getPost(1, 3)
-        .then(response =>  populate(response))
-        .then(data => this.setState({ posts: data.docs, images: data.images }))
+        .then(response =>  populate(response))        
+        .then(data => {            
+            const { page, pages, docs:posts, images, nextPage } = data;
+            this.setState({ posts, images, page, pages, nextPage })
+        })
         .catch(err => {
             console.log(err)
         });
@@ -28,24 +34,29 @@ class BlogContainer extends Component{
     fetchMoreArticles(page, size){
         getPost(page, size)
         .then(response => populate(response))
-        .then(data => this.setState({ posts: data.docs, images: data.images }))
+        .then(data => {
+            const { pages, nextPage } = this.state;
+            const { docs:posts, images, page } = data;
+            let next = page === pages ? 1 : nextPage + 1;            
+            this.setState({ page, posts, images, nextPage: next })
+        })
         .catch(err => {
             console.log('err', err)
         })
     }
 
     render(){
-        let { images, posts } = this.state;
+        let { images, posts, nextPage } = this.state;
+        console.log(this.state)
 
         const articles = posts.map(post => {
             return <Articles post={post} key={post._id} />
         });
 
         return(
-            <div className="columns is-fullheight">                
+            <div className="columns is-fullheight">                    
                 
-                <Slider images={ images }/>                
-                
+                <Slider images={ images }/>                                
                 <div className="column right-side is-half-desktop is-full-mobile">
                     <section className="hero is-fullheight is-default is-bold">
                         <div className="hero-body" id="hero-body-blog">
@@ -55,9 +66,8 @@ class BlogContainer extends Component{
 
                             </div>
                         </div>
-                    </section>
-                    
-                    <ActionButton callback={(p,s) => this.fetchMoreArticles(2,3)}/>
+                    </section>                
+                    <ActionButton callback={(p,s) => this.fetchMoreArticles(nextPage,3)}/>
 
                 </div>
             </div>
