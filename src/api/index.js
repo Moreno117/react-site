@@ -70,3 +70,11 @@ export const login = credentials => {
         data: stringify(credentials)
     });
 };
+
+export const register = params => {
+    return axios({
+        method: 'post',
+        url: `${API_URL}/api/users`,
+        data: stringify(params)
+    });
+};
