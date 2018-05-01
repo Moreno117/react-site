@@ -3,11 +3,12 @@ import Header from './../../header/container/header';
 import Footer from './../../footer/containers/footer';
 
 class Wrapper extends Component{
-    render(){
+    render(){        
+        // const style={body:{position:'relative', top:'10p'}}
         return(
             <section>
-                <Header />
-                    { this.props.children }
+                <Header />                    
+                    { this.props.children }                    
                 <Footer />
             </section>
         );

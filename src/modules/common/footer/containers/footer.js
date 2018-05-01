@@ -1,8 +1,10 @@
 import React,{ Component } from 'react';
+import { withRouter } from 'react-router';
 import './../footer.css';
 
 class Footer extends Component{
     render(){
+        // const style = { foot: {position: 'relative', top: '70px' }}
         return(
             <div className="hero-foot">
                 <div className="container footer-tab-ul-modified">
@@ -24,4 +26,4 @@ class Footer extends Component{
     }
 }
 
-export default Footer;
+export default withRouter(Footer);

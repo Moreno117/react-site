@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { withRouter } from 'react-router'
 import './../header.css';
 
 class Header extends Component {
-    render() {
+    render() {                   
+        // const style = { head: { position: 'fixed', width: '100%', zIndex: '10' }}
         return (
             <div className="hero-head">
                 <nav className="navbar">
@@ -10,7 +12,7 @@ class Header extends Component {
                         <div className="navbar-brand">
                             <a className="navbar-item navbar-logo-modified" href="../">
                                 {/* <img src="/images/CM_LogoMini.jpg" alt="Logo"> */}
-                                Carlos <strong className="header-logo-last-name">Moreno</strong>
+                                Carlos <strong className="header-logo-last-name" style={{ color:'#af1911' }}>Moreno</strong>
                             </a>
                             <span className="navbar-burger burger" data-target="navbarMenu">
                                 <span></span>
@@ -38,4 +40,4 @@ class Header extends Component {
     }
 }
 
-export default Header;
+export default withRouter(Header);

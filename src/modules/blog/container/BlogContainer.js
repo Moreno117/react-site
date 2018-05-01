@@ -46,9 +46,7 @@ class BlogContainer extends Component{
     }
 
     render(){
-        let { images, posts, nextPage } = this.state;
-        console.log(this.state)
-
+        let { posts, nextPage } = this.state;
         const articles = posts.map(post => {
             return <Articles post={post} key={post._id} />
         });
@@ -56,7 +54,7 @@ class BlogContainer extends Component{
         return(
             <div className="columns is-fullheight">                    
                 
-                <Slider images={ images }/>                                
+                <Slider data={posts}/>                                
                 <div className="column right-side is-half-desktop is-full-mobile">
                     <section className="hero is-fullheight is-default is-bold">
                         <div className="hero-body" id="hero-body-blog">

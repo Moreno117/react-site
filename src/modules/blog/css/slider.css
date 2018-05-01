@@ -1,0 +1,12 @@
+#hero-back:after{
+    content: "";
+    position: absolute;
+    background-image: url(http://res.cloudinary.com/hdrcwyebv/image/upload/v1521418763/jgmfx9xd5tqhtghhesmd.jpg);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    opacity: 0.9;
+    background-size: contain;
+}
