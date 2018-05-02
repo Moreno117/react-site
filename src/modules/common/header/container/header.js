@@ -3,8 +3,20 @@ import { withRouter } from 'react-router'
 import './../header.css';
 
 class Header extends Component {
-    render() {                   
-        // const style = { head: { position: 'fixed', width: '100%', zIndex: '10' }}
+    constructor(props){
+        super(props);
+
+        this.state = { show: false }
+    }
+
+    toogleNav(){
+        this.setState({ show: !this.state.show });
+    }
+
+    render() {                           
+        let showNav = ['navbar-menu'];
+        if (this.state.show) showNav.push(' is-active');
+
         return (
             <div className="hero-head">
                 <nav className="navbar">
@@ -14,20 +26,22 @@ class Header extends Component {
                                 {/* <img src="/images/CM_LogoMini.jpg" alt="Logo"> */}
                                 Carlos <strong className="header-logo-last-name" style={{ color:'#af1911' }}>Moreno</strong>
                             </a>
-                            <span className="navbar-burger burger" data-target="navbarMenu">
+                            <span className="navbar-burger burger" data-target="navbarMenu"
+                                onClick={this.toogleNav.bind(this)}
+                            >
                                 <span></span>
                                 <span></span>
                                 <span></span>
                             </span>
                         </div>
-                        <div id="navbarMenu" className="navbar-menu">
+                        <div id="navbarMenu" className={showNav}>
                             <div className="navbar-end">
                                 <a href="/blog" className="navbar-item">
                                     Blog
                                 </a>
-                                <a href="/social" className="navbar-item">
+                                {/* <a href="/social" className="navbar-item">
                                     Thoughs
-                                </a>
+                                </a> */}
                                 <a href="/about" className="navbar-item">
                                     Bio
                                 </a>

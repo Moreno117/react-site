@@ -1,6 +1,7 @@
 .hero-foot {
     animation: 3s fadein 1.5s forwards;
     opacity: 0;
+    text-align: center;
 }
 
 @keyframes fadein {
