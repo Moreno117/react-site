@@ -10,3 +10,14 @@
         margin: 0;
     }
 }
+
+#my-landing-button{
+    color: #ee2059;
+    border-color: #ee2089;
+}
+
+#my-landing-button:hover{
+    background-color: #111213;
+    border-color: #131415;
+    color: #fff;
+}

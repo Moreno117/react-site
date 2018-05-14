@@ -1,4 +1,4 @@
-#hero-back:after{
+/* #hero-back:after{
     content: "";
     position: absolute;
     background-image: url(http://res.cloudinary.com/hdrcwyebv/image/upload/v1521418763/jgmfx9xd5tqhtghhesmd.jpg);
@@ -9,4 +9,10 @@
     z-index: -1;
     opacity: 0.9;
     background-size: contain;
+} */
+
+.icon-social-slider{
+    position: relative;
+    top: 30px;
+    left: -18px;
 }

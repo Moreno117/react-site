@@ -11,6 +11,7 @@ import LoginModue from './modules/dashboard/containers/users/login';
 import PrivateRoute from './modules/dashboard/components/users/privateRoute';
 import LogoutModule from './modules/dashboard/containers/users/logout';
 import RegisterModule from './modules/dashboard/containers/users/register';
+import BioModule from './modules/bio';
 
 const store = configureStore();
 
@@ -24,6 +25,7 @@ class App extends Component {
             <Route exact path="/" component={ LandingModule } />
             <Route exact path="/blog" component={ BlogModule } />
             <Route exact path="/post/:id" component={ PostModule } />
+            <Route exact path="/about" component={ BioModule } />
                         
             <PrivateRoute exact path="/dashboard" component={DashboardModule}/>
             <PrivateRoute exact path="/dashboard/posts/new" component={DashboardModule}/>            

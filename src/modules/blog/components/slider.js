@@ -1,5 +1,5 @@
 import React from 'react';
-// import './../css/slider.css';
+import './../css/slider.css';
 
 const Slider = ({data=''}) => {
     return(
@@ -8,7 +8,20 @@ const Slider = ({data=''}) => {
                 <div className="hero-body">
                     <div className="container has-text-centered">
                         <div className="title is-1">{ data.length !== 0 ? data[0].title : '' }</div>
-                        <div className="title is-5">{data.length !== 0 ? data[0].create_date : '' }</div>
+                        <div>
+                            <span>
+                                <i className="fa fa-heart"></i>
+                                <span className="icon-social-slider">12</span>
+                            </span>
+                            <span>
+                                <i className="fa fa-retweet"></i>
+                                <span className="icon-social-slider">20</span>
+                            </span>
+                            <span>
+                                <i className="fa fa-eye"></i>
+                                <span className="icon-social-slider">45</span>
+                            </span>                        
+                        </div>
                     </div>
                 </div>
             </section>

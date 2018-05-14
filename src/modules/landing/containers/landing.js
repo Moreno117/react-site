@@ -26,7 +26,7 @@ class Landing extends Component{
                             </h2>
                             <br/>
                             <p className="has-text-centered">
-                                <a href="/blog" className="button is-medium is-info is-outlined">
+                                <a href="/blog" className="button is-medium is-info is-outlined" id="my-landing-button">
                                     { callToAction }
                                 </a>
                             </p>

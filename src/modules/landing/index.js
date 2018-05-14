@@ -7,9 +7,9 @@ class LandignModule extends Component{
         super(props);
 
         this.state = {
-            header: 'Random Stuff',
-            subtitle: 'Tecnología, negocios, viajes y libros.',
-            callToAction: 'Conoce mas...'
+            header: 'Notas personales',
+            subtitle: 'Sobre tecnología, negocios, viajes y libros que no me reservo el derecho a escribir',
+            callToAction: 'Solo 5 minutos'
         }
     }
 

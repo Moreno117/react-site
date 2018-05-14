@@ -5,3 +5,9 @@ export const populate = posts => {
     docs.forEach(post => images.push(post.image) );            
     return { images, docs, page, pages, limit, nextPage }
 }
+
+export const exchange = posts => {
+    setTimeout(() => {
+        console.log('TODO')
+    }, 3000);
+}
